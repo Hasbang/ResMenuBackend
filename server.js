@@ -6,13 +6,14 @@ const menuRoutes = require('./routes/menuRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const allowedOrigin = 'https://thingsandsomethingmenupage.netlify.app'
 
 connectDB(); // ✅ MongoDB connection now handled here
 
-app.use(cors());
+app.use(cors({origin : allowedOrigin}));
 app.use(express.json());
 app.use(menuRoutes);
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${process.env.PORT || 3000}`);
 });

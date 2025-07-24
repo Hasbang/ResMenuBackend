@@ -12,7 +12,9 @@ const router = express.Router();
 
 
 router.get('/test-add', testAddItem);
+
 router.get('/menu', getAllItems);
+
 router.post('/menu', upload.single('image'), async (req, res) => {
   try {
     const { name, description, category, price } = req.body;
